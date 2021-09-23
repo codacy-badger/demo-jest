@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-
+jest.setTimeout(30000);
 //* Internal import
 import { router } from '../router';
 import { AppModule } from '../app.module';
