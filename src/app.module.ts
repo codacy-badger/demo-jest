@@ -38,7 +38,7 @@ import { ChessMove } from './chess/entity/chessMove.entity';
 
 const Config = ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: process.env.NODE === 'CI' ? '.env' : `./config/.env.${process.env.NODE_ENV}`,
+      envFilePath: process.env.NODE_ENV === 'ci' ? '.env' : `./config/.env.${process.env.NODE_ENV}`,
 });
 
 const DBConfig = TypeOrmModule.forRoot({
