@@ -1,0 +1,15 @@
+version: '3'
+services:
+      redis:
+            image: redis
+            ports:
+                  - 7000:6379
+      db:
+            container_name: server.db
+            image: mysql:8.0.22
+            ports:
+                  - 3400:3306
+            environment:
+                  MYSQL_DATABASE: mychess
+                  MYSQL_ROOT_PASSWORD: 131367Nhan
+       
