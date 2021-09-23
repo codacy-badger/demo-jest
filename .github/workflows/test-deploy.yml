@@ -1,9 +1,7 @@
 name: auto-build-deploy
 
-on:
-      push:
-            branches:
-                  - 'deploy'
+on: [push]
+
 jobs:
       active-check:
             runs-on: ubuntu-latest
