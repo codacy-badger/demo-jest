@@ -24,6 +24,9 @@ jobs:
             steps:
                   - uses: actions/checkout@v2
                   - name: Use Node.js ${{ matrix.node-version }}
+                    uses: actions/setup-node@v1
+                    with:
+                          node-version: ${{ matrix.node-version }}
                     env:
                           JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
                           DB_HOST: ${{ secrets.DB_HOST }}
@@ -34,9 +37,6 @@ jobs:
                           REDIS_PORT: ${{ secrets.REDIS_PORT }}
                           REDIS_DB_NUMBER: ${{ secrets.REDIS_DB_NUMBER }}
                           REDIS_HOST: ${{ secrets.REDIS_HOST }}
-                    uses: actions/setup-node@v1
-                    with:
-                          node-version: ${{ matrix.node-version }}
                   - run: yarn install
                   - run: yarn test:ci
       coverage-reporter:
