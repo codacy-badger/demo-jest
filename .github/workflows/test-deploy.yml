@@ -23,20 +23,22 @@ jobs:
                         node-version: [10.x, 12.x]
             steps:
                   - uses: actions/checkout@v2
+                  - name: Create .env file
+                    run: |
+                          touch .env
+                          echo JWT_SECRET_KEY=${{ secrets.JWT_SECRET_KEY }} >> .env
+                          echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+                          echo DB_PORT=${{ secrets.DB_PORT }} >> .env
+                          echo DB_USERNAME=${{ secrets.DB_USERNAME }} >> .env
+                          echo DB_PASSWORD=${{ secrets.DB_PASSWORD }} >> .env
+                          echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+                          echo REDIS_PORT=${{ secrets.REDIS_PORT }} >> .env
+                          echo REDIS_DB_NUMBER=${{ secrets.REDIS_DB_NUMBER }} >> .env
+                          echo REDIS_HOST=${{ secrets.REDIS_HOST }} >> .env
                   - name: Use Node.js ${{ matrix.node-version }}
                     uses: actions/setup-node@v1
                     with:
                           node-version: ${{ matrix.node-version }}
-                    env:
-                          JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
-                          DB_HOST: ${{ secrets.DB_HOST }}
-                          DB_PORT: ${{ secrets.DB_PORT }}
-                          DB_USERNAME: ${{ secrets.DB_USERNAME }}
-                          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-                          DB_NAME: ${{ secrets.DB_NAME }}
-                          REDIS_PORT: ${{ secrets.REDIS_PORT }}
-                          REDIS_DB_NUMBER: ${{ secrets.REDIS_DB_NUMBER }}
-                          REDIS_HOST: ${{ secrets.REDIS_HOST }}
                   - run: yarn install
                   - run: yarn start:ci
 
