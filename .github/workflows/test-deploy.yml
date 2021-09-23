@@ -40,7 +40,7 @@ jobs:
                     with:
                           node-version: ${{ matrix.node-version }}
                   - run: yarn install
-                  - run: yarn start:ci
+                  - run: yarn test:ci
 
       coverage-reporter:
             needs: test
