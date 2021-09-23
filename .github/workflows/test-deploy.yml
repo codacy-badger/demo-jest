@@ -75,7 +75,7 @@ jobs:
                           file: ./server/Dockerfile
                           builder: ${{steps.buildx.outputs.name}}
                           push: true
-                          tags: heaty566/my-game-server:latest
+                          tags: heaty566/jest-test-server:latest
                   - name: Verify
                     run: |
                           echo ${{steps.docker_build_server.outputs.digest}}
@@ -93,5 +93,6 @@ jobs:
                           port: ${{ secrets.PORT }}
                           script: |
                                 cd app
+                                cd jest
                                 docker-compose pull 
                                 docker-compose up -d
