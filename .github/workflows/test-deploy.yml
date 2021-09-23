@@ -38,7 +38,8 @@ jobs:
                           REDIS_DB_NUMBER: ${{ secrets.REDIS_DB_NUMBER }}
                           REDIS_HOST: ${{ secrets.REDIS_HOST }}
                   - run: yarn install
-                  - run: yarn test:ci
+                  - run: yarn start:dev
+
       coverage-reporter:
             needs: test
             runs-on: ubuntu-latest

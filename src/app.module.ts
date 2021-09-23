@@ -38,7 +38,7 @@ import { ChessMove } from './chess/entity/chessMove.entity';
 
 const Config = ConfigModule.forRoot({
       isGlobal: true,
-      // envFilePath: `./config/.env.${process.env.NODE_ENV}`,
+      envFilePath: `./config/.env.${process.env.NODE_ENV}`,
 });
 
 const DBConfig = TypeOrmModule.forRoot({
@@ -53,7 +53,7 @@ const DBConfig = TypeOrmModule.forRoot({
       entities: [User, ReToken, Notification, Chat, Message, TicTacToe, TicTacToeMove, Chess, ChessMove],
       extra: { connectionLimit: 1 },
 });
-
+console.log(process.env.DB_HOST);
 @Module({
       imports: [
             // --- Config
