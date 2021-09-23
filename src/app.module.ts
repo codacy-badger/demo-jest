@@ -53,7 +53,7 @@ const DBConfig = TypeOrmModule.forRoot({
       entities: [User, ReToken, Notification, Chat, Message, TicTacToe, TicTacToeMove, Chess, ChessMove],
       extra: { connectionLimit: 1 },
 });
-console.log(process.env.DB_HOST);
+
 @Module({
       imports: [
             // --- Config
