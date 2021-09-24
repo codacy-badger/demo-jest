@@ -44,6 +44,7 @@ jobs:
 
       coverage-reporter:
             runs-on: ubuntu-latest
+            needs: test
             name: codacy-coverage-reporter
 
             steps:
