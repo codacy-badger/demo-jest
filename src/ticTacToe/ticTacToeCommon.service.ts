@@ -9,6 +9,7 @@ import { TicTacToeMove } from './entity/ticTacToeMove.entity';
 import { TicTacToeMoveRepository } from './entity/ticTacToeMove.repository';
 import { TicTacToeRepository } from './entity/ticTacToe.repository';
 import { User } from '../user/entities/user.entity';
+
 import { UserService } from '../user/user.service';
 
 //---- Service
