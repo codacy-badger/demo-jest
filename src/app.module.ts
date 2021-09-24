@@ -48,6 +48,7 @@ const DBConfig = TypeOrmModule.forRoot({
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
+      synchronize: true,
       keepConnectionAlive: true,
       entities: [User, ReToken, Notification, Chat, Message, TicTacToe, TicTacToeMove, Chess, ChessMove],
       extra: { connectionLimit: 1 },
